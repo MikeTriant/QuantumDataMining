@@ -69,13 +69,13 @@ print(f"F1-Score:  {f1_score(y_test, y_pred_quant):.4f}")
 
 # Δισδιάστατη απεικόνιση των δεδομένων
 plt.figure(figsize=(8, 6))
-# Σχεδιάζουμε τα σημεία εκπαίδευσης και δοκιμής
+# Σχεδιασμός σημείων εκπαίδευσης και δοκιμής
 scatter = plt.scatter(X_quantum[:, 0], X_quantum[:, 1], c=data.target, 
                       cmap='bwr', alpha=0.7, edgecolors='k')
 plt.title("Κατανομή Δεδομένων Καρκίνου του Μαστού (2 Κύριες Συνιστώσες)")
 plt.xlabel("Κύρια Συνιστώσα 1 (Κλιμακωμένη -1 έως 1)")
 plt.ylabel("Κύρια Συνιστώσα 2 (Κλιμακωμένη -1 έως 1)")
-# Προσθήκη υπομνήματος (0: Κακοήθης, 1: Καλοήθης)
+# Προσθήκη υπομνήματος
 plt.legend(handles=scatter.legend_elements()[0], labels=['Κακοήθης', 'Καλοήθης'])
 plt.grid(True, linestyle='--', alpha=0.5)
 plt.show()

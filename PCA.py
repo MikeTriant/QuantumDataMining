@@ -12,7 +12,7 @@ import seaborn as sns
 
 # Προεπεξεργασία
 data = load_breast_cancer()
-# Επιλογή 4 χαρακτηριστικών για 4x4 matrix (2 qubits)
+# Επιλογή 4 χαρακτηριστικών
 X = data.data[:, :4] 
 X_scaled = StandardScaler().fit_transform(X)
 
@@ -28,7 +28,7 @@ class_max = max(classical_evs)
 # Ορισμός του τελεστή
 op = Operator(cov_matrix)
 observable = SparsePauliOp.from_operator(op)
-observable_inv = -1 * observable # Αντιστροφή για εύρεση μεγίστου
+observable_inv = -1 * observable
 
 # Ρύθμιση VQE
 backend = AerSimulator()
@@ -65,7 +65,7 @@ eigenvalues = [class_max, quantum_max]
 bars = plt.bar(methods, eigenvalues, color=['#4C72B0', '#55A868'], width=0.5)
 plt.ylabel('Τιμή Κύριας Ιδιοτιμής (Max Variance)')
 plt.title('Σύγκριση Εξαγωγής Κύριας Ιδιοτιμής')
-plt.ylim(0, max(class_max, quantum_max) * 1.2) # Αφήνουμε χώρο πάνω από τις μπάρες
+plt.ylim(0, max(class_max, quantum_max) * 1.2)
 
 for bar in bars:
     yval = bar.get_height()
